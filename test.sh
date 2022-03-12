@@ -7,9 +7,6 @@ set -x
 
 file='${workspace}/custom-root-ca'
 
-ls -altr $file
-ls -altr $file/custom-root-ca
-
 ls -altr ${workspace}
 
 ls -altr "custom-root-ca"
