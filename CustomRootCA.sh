@@ -12,6 +12,14 @@ cat $file
 
 echo "Validating custom root ca file ...!"
 
+cp CustomRootCA /usr/local/share/ca-certificates/customrootca.crt
+
+update-ca-certificates > /dev/null 2>&1
+
+rm -f /usr/local/share/ca-certificates/customrootca.crt
+
+update-ca-certificates --fresh > /dev/null 2>&1
+
 openssl verify $file
    
    if [ $? = 0 ] ;then
