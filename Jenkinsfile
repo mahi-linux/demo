@@ -1,3 +1,5 @@
+// Must install the AnsiColor Plugins for color text
+
 pipeline {
     agent { label 'ansible' }
     options {
@@ -5,21 +7,13 @@ pipeline {
     }
     
     parameters {
-        base64File 'custom-root-ca'
+        text(description: 'past the custom-root-ca certificate starting with "-----BEGIN CERTIFICATE-----" and ending with "-----END CERTIFICATE-----"', name: 'CustomRootCA')
     }
-
+    
     stages {
-        stage('script file') {
+        stage('custom-root-ca-validation') {
             steps {
-                wrap([$delegate: parameters.custom-root-ca]) {
-                  sh 'cat custom-root-ca'
-                }
-            }
-        }
-
-        stage('Generate hosts') {
-            steps {
-                sh "${workspace}/test.sh"
+                sh "${workspace}/CustomRootCA"
             }
         }
     }
