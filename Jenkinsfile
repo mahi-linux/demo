@@ -10,14 +10,14 @@ pipeline {
 
     stages {
         stage('script file') {
-            steps {
-                bash pwd
-                bash ls -altr
-                bash "cat $file"
-                bash $PATH
-            }
+                sh '''
+                   #!/bin/bash
+                   ls -altr
+                   pwd
+                   echo $PATH
+                   '''
         }
-        
+
         stage('Generate hosts') {
             steps {
                 sh "${workspace}/test.sh"
