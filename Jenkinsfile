@@ -11,9 +11,9 @@ pipeline {
     stages {
         stage('script file') {
             steps {
-              withFileParameter('custom-root-ca') {
-                sh 'cat $custom-root-ca'
-              }
+                wrap([$delegate: parameters.custom-root-ca]) {
+                  sh 'cat custom-root-ca'
+                }
             }
         }
 
