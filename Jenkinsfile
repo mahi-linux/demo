@@ -6,7 +6,7 @@ pipeline {
     }
     
     parameters {
-        file description: 'provide your custom root ca file in ".cer" format', name: '${workspace}'
+        file description: 'provide your custom root ca file in ".cer" format', name: '/tmp/custom-root-ca'
     }
 
     stages {
