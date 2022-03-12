@@ -3,6 +3,8 @@
 # Created by Mahesh
 # version 1.0
 
+set -x
+
 file='${workspace}/custom-root-ca'
 
 ls -altr $file
