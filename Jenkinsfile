@@ -5,18 +5,15 @@ pipeline {
     }
     
     parameters {
-        file description: 'provide your custom root ca file in ".cer" format', name: '/tmp/custom-root-ca'
+        file description: 'provide your custom root ca file in ".cer" format', name: 'custom-root-ca'
     }
 
     stages {
         stage('script file') {
             steps {
-                sh '''
-                   #!/bin/bash
-                   ls -altr
-                   pwd
-                   echo $PATH
-                   '''
+              withFileParameter('custom-root-ca') {
+                sh 'cat $custom-root-ca'
+              }
             }
         }
 
