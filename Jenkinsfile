@@ -17,7 +17,6 @@ pipeline {
                 bash $PATH
             }
         }
-    }
 
     stages {
         stage('Generate hosts') {
