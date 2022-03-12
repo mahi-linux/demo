@@ -11,9 +11,10 @@ pipeline {
     stages {
         stage('script file') {
             steps {
-                pwd
-                ls -altr
-                sh "cat $file"
+                bash pwd
+                bash ls -altr
+                bash "cat $file"
+                bash $PATH
             }
         }
     }
