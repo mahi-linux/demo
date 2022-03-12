@@ -5,7 +5,7 @@ pipeline {
     }
     
     parameters {
-        file description: 'provide your custom root ca file in ".cer" format', name: 'custom-root-ca'
+        base64File 'custom-root-ca'
     }
 
     stages {
