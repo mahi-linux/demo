@@ -17,8 +17,7 @@ pipeline {
                 bash $PATH
             }
         }
-
-    stages {
+        
         stage('Generate hosts') {
             steps {
                 sh "${workspace}/test.sh"
