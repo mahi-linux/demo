@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('custom-root-ca-validation') {
             steps {
-                sh "${workspace}/CustomRootCA"
+                sh "${workspace}/CustomRootCA.sh"
             }
         }
     }
